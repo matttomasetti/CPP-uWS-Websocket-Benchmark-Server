@@ -26,7 +26,7 @@ RUN cd /home \
 
 #Compile websocket
 RUN cd /home/websocket \
-    && https://raw.githubusercontent.com/nlohmann/json/develop/single_include/nlohmann/json.hpp \
+    && wget https://raw.githubusercontent.com/nlohmann/json/develop/single_include/nlohmann/json.hpp \
     && cmake configure . \
     && cmake . \
     && make
