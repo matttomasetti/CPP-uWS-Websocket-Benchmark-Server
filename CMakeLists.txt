@@ -35,7 +35,7 @@ add_library(uWS SHARED IMPORTED) # or STATIC instead of SHARED
 
 set_target_properties(uWS PROPERTIES
         #IMPORTED_LOCATION "${CMAKE_HOME_DIRECTORY}/uWebSockets/build/libuWS.dylib"
-        IMPORTED_LOCATION "${CMAKE_HOME_DIRECTORY}/uWebSockets/build/libuWS.so"
+        IMPORTED_LOCATION "/home/uWebSockets/build/libuWS.so"
         )
 
 find_library(UV_LIBRARY
