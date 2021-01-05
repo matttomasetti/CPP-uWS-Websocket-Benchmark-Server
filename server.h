@@ -2,12 +2,11 @@
 #define MAIN_SERVER_H
 
 #include <sstream>
-#include <string>
 #include <cstring>
 #include <iostream>
 #include <sstream>
-#include <string>
 #include <cstring>
+#include <string>
 #include <uWS/uWS.h>
 #include "json.hpp"
 
@@ -20,10 +19,10 @@ private:
      * Gets the current unix timestamp of the server
      * @return current unix timestamp
      */
-    time_t getTimestamp(){ return time(nullptr);}
-    void getEvent(int c, char * buffer);
-
+    time_t getTimestamp(){ return time(NULL);}
+    std::string getEvent(int c);
     int notify(uWS::WebSocket<uWS::SERVER> ws, int c);
+
 };
 
 

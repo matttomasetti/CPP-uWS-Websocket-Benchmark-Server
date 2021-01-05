@@ -40,7 +40,7 @@ void Server::run(){
  * @param buffer pointer to the char array the event will be written into
  * @return a JSON string of the message count and the current timestamp
  */
-void Server::getEvent(int c, char* buffer){
+std::string Server::getEvent(int c){
 
     //create new JSON object
     nlohmann::json event;
@@ -48,12 +48,13 @@ void Server::getEvent(int c, char* buffer){
     //populate JSON object
     event["c"] = c;
     event["ts"] = getTimestamp();
+    
+    // Convert JSON object to string.
+    // A string_view would be more efficient here, which worked on CLion on OSX,
+    // however, string_view would throw a segmentation fault on Ubuntu.
+    std::string outgoing_string = event.dump();
 
-    //convert JSON object to string (string_view's are more efficient)
-    std::string_view outgoing_string = event.dump();
-
-    //copy the JSON string in the buffer
-    snprintf(buffer, 64, "%s", outgoing_string);
+    return outgoing_string;
 }
 
 
@@ -67,9 +68,9 @@ int Server::notify(uWS::WebSocket<uWS::SERVER> ws, int c){
     char message[64];
 
     //get the event string
-    getEvent(c, message);
+    strcpy(message, getEvent(c).c_str());
 
-    //std::cout << message << std::endl;
+    std::cout << message << std::endl;
 
     //send the event to the websocket client
     ws.send(message, strlen(message), uWS::OpCode::TEXT);
