@@ -34,4 +34,4 @@ RUN cd /home/websocket \
 EXPOSE 8080
 
 WORKDIR /home/websocket
-CMD ["./bin/main"]
+CMD ["./bin/cpp-uws-websocket-server"]
