@@ -11,7 +11,7 @@ The benchmarking client can be found [here](https://github.com/matttomasetti/Nod
 
 ## Quick Set-Up
 ```
-docker run mtomasetti/cpp-uws_websocket-benchmark-server
+docker run -p 8080:8080 mtomasetti/cpp-uws_websocket-benchmark-server
 ```
 That's it! The websocket server will automatically start on **port 8080**
 
