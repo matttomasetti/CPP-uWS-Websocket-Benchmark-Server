@@ -26,6 +26,7 @@ docker run -p 8080:8080 websocket_benchmark/cpp
 #### Requirements
 
 In order for this websocket server to compile and run, it requires:
+* CMake
 * uWebSockets
 * nlohmann/json (copy json.hpp into the root directory of the project)
 
